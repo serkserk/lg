@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+	<head>
+  		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Loups-Garous L2D1</title>
+		<link rel="stylesheet" href="css/humane.css">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.css">
+		<link rel="stylesheet" href="css/styles.css">
+		<meta name="theme-color" content="#303F9F">
+	</head>
+	
+	<body>
+
+		<header>
+			<h1>Les Loups-Garous de Descartelieux</h1>
+		</header>
+
+
+		<section id="main">
+			<!-- Ici le contenu qui va être changer à chaque tour de la partie -->
+		</section>
+
+
+		<footer>
+			<p class="nameDisplay">
+
+			</p>
+			<a href="http://www.ens.math-info.univ-paris5.fr/projets-informatiques/doku.php?id=projets:licence2:2014-2015#sujet_l2d_-_les_loups-garous_de_descartelieux" target="_blank">L2D1</a>
+			-
+			<a href="http://lesloupsgarous.free.fr/htm/regles.html" target="_blank">Règles du jeux</a>
+			-
+			<a href="mailto:l2d1@googlegroups.com">Contact</a>
+		</footer>
+
+
+		<script id="nameDisplayTemplate" type="text/template">
+			<b>{{ name }}</b> - <u><i>{{ character.type }}</i></u>
+		</script>
+
+		
+		<script id="homeTemplate" type="text/template">
+			<h2>Les Loups-Garous de Descartelieux</h2>
+			<p> <input type="text" id="name" required placeholder="Saisiser votre pseudo"> </p>
+			<p> <input type="button" id="play" value="Play"class="btn-box"> </p>
+		</script>
+
+
+		<script id="votesTemplate" type="text/template">
+			<h2>{{ turn }}</h2>
+			<form>
+				<div class="players">
+
+					{{#players}}
+					<p class="radioP">
+						<input type="radio" name="against" id="{{id}}" value="{{id}}">
+					  <label for="{{id}}">
+					    <span class="radioButtonGraph"></span>
+					    {{name}}
+					  </label>
+					</p>
+					{{/players}}<br />
+				</div>
+				<input type="submit" value="Voter" id="vote"class="btn btn-primary">
+			</form>
+		</script>
+
+		
+		<script id="readyToPlayTemplate" type="text/template">
+			<h2>{{ title }} {{^title}} En attente de joueurs {{/title}}</h2>
+			<br />
+			<ul>
+				{{#players}}
+					<li>{{name}}</li>
+				{{/players}}
+			</ul>
+			{{^canStart}}
+				<p><i>Il y a <b>{{players.length}}</b> joueurs présent</i></p>
+			{{/canStart}}
+			<input type="button" id="start" value="Start" class="btn btn-primary"
+			{{^canStart}}
+				disabled="disabled"
+			{{/canStart}}>
+		</script>
+
+
+		<script id="notMyTurnTemplate" type="text/template">
+			<h2>C&#39est {{ turn }}, vous ne pouvez pas voter</h2>
+			<p><img src="images/sleeping-moon.png" alt="sleeping-moon" /></p>
+			<style>
+				body {background-color:#BDBDBD;}
+				header {background-color:#3f51b5; box-shadow: 0px 4px 3px #616161;}
+				footer {background-color:#3f51b5;}
+			</style>
+		</script>
+
+
+		<script id="gameEndedTemplate" type="text/template">
+			<h2>Fin de la partie,</h2>
+			<h3>les gagnants sont les {{ winner }} !!!</h3>
+			<button id="playagain" class="btn btn-primary">Play again</button>
+		</script>
+
+		<script id="iLostTemplate" type="text/template">
+			<h2>Vous avez été éliminé :(</h2>
+		</script>
+
+		
+		<script type="text/javascript" src="lib/jquery.min.js"></script>
+		<script type="text/javascript" src="lib/socket.io.min.js"></script>
+		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="lib/mustache.min.js"></script>
+		<script type="text/javascript" src="lib/humane.min.js"></script>
+		<script type="text/javascript" src="lib/faker.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,176 @@
+@font-face{
+    font-family: 'robotolight';
+    src: url('../fonts/Roboto-Light-webfont.eot');
+    src: url('../fonts/Roboto-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Light-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Light-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Light-webfont.svg#robotolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+	width: 100%;
+	margin: auto;
+	background-color: #f1f1f1;
+	font-family: 'robotolight';
+}
+
+header{
+	background-color: #4484f6;
+	height: 45px;
+	position: relative;
+	box-shadow: 0px 4px 3px lightgrey;
+}
+
+header h1{
+	font-size: 20px;
+	text-align: center;
+	color: #FFFFFF;
+	margin: 0px;
+	padding-top: 14px;
+}
+
+section{
+    text-align: center;
+}
+
+ul{
+    list-style-type: none;
+}
+
+footer{
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+	padding: 5px 0px;
+	font-size: small;
+	text-align: center;
+	color: white;
+	background-color: #4484f6;
+}
+
+footer a{
+	color: white;
+	text-decoration: none;
+}
+
+footer a:hover{
+	color:white;
+}
+
+.btn-box{
+	background-color: white;
+	border: 0px;
+	box-shadow: 4px 4px 2px lightgrey;
+	padding: 10px 14px 10px 14px;
+	top: 50%;
+	font-size: 20px;
+	top: 50%;
+}
+
+.nameDisplay {
+	display:none;
+}
+
+
+/** Radio buttons */
+/* Source: http://codepen.io/Sirop/pen/Bydjk */
+
+form {
+  padding:30px;
+  border-radius:3px;
+  margin:10px auto;
+  width:300px;
+  background:#fff;
+  border-top:6px solid #62c2f3;
+}
+
+.radioP {
+  display: block;
+  position: relative;
+  margin: 20px 0;
+  padding-left:40px;
+  
+  font-family:arial;
+}
+.radioP:first-child {
+ margin:0 0 20px 0; 
+}
+
+input[type="text"] {
+  height:50px;
+  font-size: 1.3em;
+  width:200px;
+  text-align:center;
+}
+
+input[type="radio"] {
+  display: block;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 0;
+}
+
+/* For IE 7-8-9
+
+input[type="radio"] {
+  display: inline-block;
+}
+input[type="radio"] + label span.radioButtonGraph {
+  display: none;
+}
+
+*/
+
+input[type="radio"] + label span.radioButtonGraph {
+  appearance: none;
+
+  z-index: 20;
+  position: absolute;
+  top:-3px;
+  left:0;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  vertical-align: middle;
+  box-shadow: hsla(0,0%,100%,.15) 0 1px 1px, inset hsla(0,0%,0%,.5) 0 0 0 1px;
+
+  background: #efefef;
+  background-image: radial-gradient(ellipse at center,  #62c2f3 0%,#62c2f3 40%,#efefef 45%);
+  background-repeat: no-repeat;
+
+  transition: background-position .15s cubic-bezier(.8, 0, 1, 1);
+}
+input[type="radio"]:checked + label span.radioButtonGraph {
+  transition: background-position .2s .15s cubic-bezier(0, 0, .2, 1);
+}
+
+input[type="radio"] + label span.radioButtonGraph {
+  background-position: -24px 0;
+}
+input[type="radio"]:checked + label span.radioButtonGraph {
+  background-position: 0 0;
+}
+
+input[type="submit"] {
+  border:none;
+  background:#62c2f3;
+  color:#fff;
+  font-size:20px;
+  padding:10px 0;
+  border-radius:3px;
+  cursor:pointer;
+  width:100%;
+}
+input[type="submit"]:hover {opacity:.8;}
+input[type="submit"]:active {opacity:1;}
+input[type="submit"]:disabled {
+	background: #ddd;
+}
+
+/**  End of radio buttons */
