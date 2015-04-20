@@ -21,7 +21,7 @@ var GameCore = module.exports = function(options) {  //parametre du jeux
 		min: 6,
 		max: 12,
 		character: {
-			loupGarous: '20' // Limite en pourcentage du nombre de Loups-Garous
+			loupGarous: 20 // Limite en pourcentage du nombre de Loups-Garous
 		}
 	});
 	this.players = [];
@@ -105,7 +105,26 @@ GameCore.prototype.start = function() { //changement statut : debut de la partie
 
 GameCore.prototype.setType = function() { //attribution de roles
 
-	var pctL = Math.round( this.players.length * (20 / 100) );
+	var playerNB = this.players.length;
+	var lgNB = Math.round((playerNB * this.options.character.loupGarous) / 100);
+	
+	for (var i = 0 ; i < playerNB ; i++) {
+
+		var rndNB = Math.floor((Math.random() * 4) + 1);
+		if (rndNB == 4 && lgNB != 0) {
+			this.players[i].generateCharacter("loup-garou");
+			lgNB--;
+		}
+		else if ((playerNB - (i+1)) == lgNB && lgNB != 0) {
+			this.players[i].generateCharacter("loup-garou");
+			lgNB--;
+		}
+		else
+			this.players[i].generateCharacter("villageois");
+	}
+}
+
+/*	var pctL = Math.round( this.players.length * (20 / 100) );
 
 	for(var i=0; i<this.players.length - pctL; i++) {
 		this.players[i].generateCharacter("villageois");
@@ -115,7 +134,9 @@ GameCore.prototype.setType = function() { //attribution de roles
 		if (this.players[i].character === null)
 			this.players[i].generateCharacter("loup-garou");
 	}
-}
+}*/
+
+
 
 GameCore.prototype.stop = function(winner) { //fin de partie, renvoi le gagnant
 	this.status = "end";

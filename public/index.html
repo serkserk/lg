@@ -42,8 +42,10 @@
 		
 		<script id="homeTemplate" type="text/template">
 			<h2>Les Loups-Garous de Descartelieux</h2>
-			<p> <input type="text" id="name" required placeholder="Saisiser votre pseudo"> </p>
-			<p> <input type="button" id="play" value="Play"class="btn-box"> </p>
+			<form>
+			<p> <input type="text" id="name" required placeholder="Saisiser votre pseudo" autofocus> </p>
+			<p> <input type="submit" id="play" value="Play"class="btn-box"> </p>
+			</form>
 		</script>
 
 
@@ -104,6 +106,7 @@
 
 		<script id="iLostTemplate" type="text/template">
 			<h2>Vous avez été éliminé :(</h2>
+			<p><img src="images/gameover.png" alt="gameover" /></p>
 		</script>
 
 		
